@@ -1,6 +1,6 @@
 {% set name = "shelephant" %}
-{% set version = "0.1.0" %}
-{% set sha256 = "a692acb0373c950e8134ccc356a392f284e5ed3b240ac6fa6b467ed8475b8fb8" %}
+{% set version = "0.2.0" %}
+{% set sha256 = "014d888e6d9b366ca2a8025f904008b1b766b8ae08717fccae9fd8072dec3166" %}
 
 package:
   name: {{ name|lower }}
@@ -15,9 +15,10 @@ build:
   noarch: python
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
+    - shelephant_checksum = shelephant.cli.shelephant_checksum:main
     - shelephant_dump = shelephant.cli.shelephant_dump:main
     - shelephant_get = shelephant.cli.shelephant_get:main
-    - shelephant_hash = shelephant.cli.shelephant_hash:main
+    - shelephant_merge = shelephant.cli.shelephant_merge:main
     - shelephant_remote = shelephant.cli.shelephant_remote:main
     - shelephant_rm = shelephant.cli.shelephant_rm:main
     - shelephant_send = shelephant.cli.shelephant_send:main
@@ -28,18 +29,20 @@ requirements:
     - pip
   run:
     - python >=3
-    - docopt >=0.6.2
-    - click >=4.0
-    - pyyaml >=1.0
+    - docopt
+    - click
+    - pyyaml
+    - mergedeep
     - numpy
 
 test:
   imports:
     - shelephant
   commands:
+    - shelephant_checksum --help
     - shelephant_dump --help
     - shelephant_get --help
-    - shelephant_hash --help
+    - shelephant_merge --help
     - shelephant_remote --help
     - shelephant_rm --help
     - shelephant_send --help
