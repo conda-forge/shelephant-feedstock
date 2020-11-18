@@ -1,6 +1,6 @@
 {% set name = "shelephant" %}
-{% set version = "0.2.0" %}
-{% set sha256 = "014d888e6d9b366ca2a8025f904008b1b766b8ae08717fccae9fd8072dec3166" %}
+{% set version = "0.3.0" %}
+{% set sha256 = "25b0fcc5076c1d7881b634f11a9b4c83fb9fb14ea01cf30761995c8aa3158e3d" %}
 
 package:
   name: {{ name|lower }}
@@ -17,6 +17,7 @@ build:
   entry_points:
     - shelephant_checksum = shelephant.cli.shelephant_checksum:main
     - shelephant_dump = shelephant.cli.shelephant_dump:main
+    - shelephant_extract = shelephant.cli.shelephant_extract:main
     - shelephant_get = shelephant.cli.shelephant_get:main
     - shelephant_merge = shelephant.cli.shelephant_merge:main
     - shelephant_remote = shelephant.cli.shelephant_remote:main
@@ -41,6 +42,7 @@ test:
   commands:
     - shelephant_checksum --help
     - shelephant_dump --help
+    - shelephant_extract --help
     - shelephant_get --help
     - shelephant_merge --help
     - shelephant_remote --help
