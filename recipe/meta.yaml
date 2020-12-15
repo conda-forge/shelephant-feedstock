@@ -1,6 +1,6 @@
 {% set name = "shelephant" %}
-{% set version = "0.3.0" %}
-{% set sha256 = "25b0fcc5076c1d7881b634f11a9b4c83fb9fb14ea01cf30761995c8aa3158e3d" %}
+{% set version = "0.4.0" %}
+{% set sha256 = "69cf5a0806ceeaff788157394381906c641937336333d49f4f093d56a9d75442" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   entry_points:
     - shelephant_checksum = shelephant.cli.shelephant_checksum:main
     - shelephant_dump = shelephant.cli.shelephant_dump:main
