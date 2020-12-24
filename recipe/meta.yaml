@@ -1,6 +1,6 @@
 {% set name = "shelephant" %}
-{% set version = "0.8.0" %}
-{% set sha256 = "21f5c3b582e3e8e2a8ac6f1135c4618d69f1da30d16b385793fa26fb6d25287c" %}
+{% set version = "0.8.1" %}
+{% set sha256 = "62fd61b425a393b4eade429da00a94dc06f9f976d3207d38ced3c24a3c91b73e" %}
 
 package:
   name: {{ name|lower }}
@@ -20,7 +20,10 @@ build:
     - shelephant_extract = shelephant.cli.shelephant_extract:main
     - shelephant_get = shelephant.cli.shelephant_get:main
     - shelephant_merge = shelephant.cli.shelephant_merge:main
+    - shelephant_parse = shelephant.cli.shelephant_parse:main
     - shelephant_remote = shelephant.cli.shelephant_remote:main
+    - shelephant_cp = shelephant.cli.shelephant_cp:main
+    - shelephant_mv = shelephant.cli.shelephant_mv:main
     - shelephant_rm = shelephant.cli.shelephant_rm:main
     - shelephant_send = shelephant.cli.shelephant_send:main
 
@@ -45,7 +48,10 @@ test:
     - shelephant_extract --help
     - shelephant_get --help
     - shelephant_merge --help
+    - shelephant_parse --help
     - shelephant_remote --help
+    - shelephant_cp --help
+    - shelephant_mv --help
     - shelephant_rm --help
     - shelephant_send --help
 
