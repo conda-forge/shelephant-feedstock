@@ -1,6 +1,6 @@
 {% set name = "shelephant" %}
-{% set version = "0.9.0" %}
-{% set sha256 = "d72be6cb76de2697aecf51e3b3295d52e965455c926e8f731c2036cf6abd3178" %}
+{% set version = "0.10.0" %}
+{% set sha256 = "e0493a81cd24ae4c4fee5ec6774ac3fecc203afaaee3618d81f9bbac121d6d04" %}
 
 package:
   name: {{ name|lower }}
@@ -37,6 +37,7 @@ requirements:
     - click
     - pyyaml
     - mergedeep
+    - tqdm
     - numpy
 
 test:
