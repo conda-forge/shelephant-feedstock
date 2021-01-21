@@ -37,6 +37,7 @@ requirements:
     - click
     - pyyaml
     - mergedeep
+    - tqdm
     - numpy
 
 test:
