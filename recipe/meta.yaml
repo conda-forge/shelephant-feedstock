@@ -1,6 +1,6 @@
 {% set name = "shelephant" %}
-{% set version = "0.11.0" %}
-{% set sha256 = "3b5f96f51d18a6174d688d0bcb081b29a9b121c3a77f88bb03d05d3d15b3bc10" %}
+{% set version = "0.12.0" %}
+{% set sha256 = "cb3180fcf04df5ad9c454c6a0cc27cc2a8fc1b8cb29f1bf8883415baf8a36baa" %}
 
 package:
   name: {{ name|lower }}
