@@ -1,6 +1,5 @@
 {% set name = "shelephant" %}
 {% set version = "0.14.3" %}
-{% set sha256 = "00a45b2e8b01d2fcc0f3cc4872947f61ac226a4a7c4b01574cc832f260030e30" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 00a45b2e8b01d2fcc0f3cc4872947f61ac226a4a7c4b01574cc832f260030e30
 
 build:
   number: 0
@@ -31,6 +30,7 @@ requirements:
   host:
     - python >=3
     - pip
+    - setuptools_scm
   run:
     - python >=3
     - docopt
