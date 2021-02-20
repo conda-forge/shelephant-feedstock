@@ -1,6 +1,6 @@
 {% set name = "shelephant" %}
-{% set version = "0.14.2" %}
-{% set sha256 = "34d5848b55af73a6f4ddb8de1abfb1ebdb48d4b1b4e1f6b91b67af0f182d3634" %}
+{% set version = "0.14.3" %}
+{% set sha256 = "1d3d333cad0c46bbf6719cce1f7409df20e520d9d088db55922e7abaab498e9e" %}
 
 package:
   name: {{ name|lower }}
@@ -44,17 +44,17 @@ test:
   imports:
     - shelephant
   commands:
-    - shelephant_checksum --help
-    - shelephant_dump --help
-    - shelephant_extract --help
-    - shelephant_get --help
-    - shelephant_merge --help
-    - shelephant_parse --help
-    - shelephant_hostinfo --help
-    - shelephant_cp --help
-    - shelephant_mv --help
-    - shelephant_rm --help
-    - shelephant_send --help
+    - shelephant_checksum --version
+    - shelephant_dump --version
+    - shelephant_extract --version
+    - shelephant_get --version
+    - shelephant_merge --version
+    - shelephant_parse --version
+    - shelephant_hostinfo --version
+    - shelephant_cp --version
+    - shelephant_mv --version
+    - shelephant_rm --version
+    - shelephant_send --version
 
 about:
   home: https://github.com/tdegeus/shelephant
