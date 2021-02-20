@@ -1,13 +1,13 @@
 {% set name = "shelephant" %}
 {% set version = "0.14.3" %}
-{% set sha256 = "1d3d333cad0c46bbf6719cce1f7409df20e520d9d088db55922e7abaab498e9e" %}
+{% set sha256 = "00a45b2e8b01d2fcc0f3cc4872947f61ac226a4a7c4b01574cc832f260030e30" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/tdegeus/{{ name }}/archive/v{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
