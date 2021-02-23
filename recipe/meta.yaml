@@ -1,5 +1,5 @@
 {% set name = "shelephant" %}
-{% set version = "0.15.1" %}
+{% set version = "0.15.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7012878848b26cfe559ee8943ad61a2ccad89d112c0023b2252a8babf094b673
+  sha256: 0300752d01838ecff6d44502178fd0bd5ba454778a04d25ceb074115c6babe96
 
 build:
   number: 0
