@@ -33,7 +33,6 @@ requirements:
     - setuptools_scm
   run:
     - python >=3
-    - docopt
     - click
     - pyyaml
     - mergedeep
