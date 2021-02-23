@@ -1,5 +1,5 @@
 {% set name = "shelephant" %}
-{% set version = "0.14.4" %}
+{% set version = "0.15.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 72e172d50a65844a799d9f0e9aef5495af6934a59e3636371dc6e222b762c0be
+  sha256: e34d07206166292b7f7eb10801f505e8c86b070ab1456c891eb4d99d95c0cfc9
 
 build:
   number: 0
@@ -33,7 +33,6 @@ requirements:
     - setuptools_scm
   run:
     - python >=3
-    - docopt
     - click
     - pyyaml
     - mergedeep
