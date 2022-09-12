@@ -1,4 +1,5 @@
 {% set name = "shelephant" %}
+{% set org = "tdegeus" %}
 {% set version = "0.18.0" %}
 
 package:
@@ -6,42 +7,46 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 4b88384ee44039535e9fc1cf6d8bdb538f1d3865a687f8c3e258b32955a9b69c
+  url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: 52be4b42893732063db07e0eda107e9d9c6a6be810a6db8bfa2fa35ab5dd36c7
 
 build:
   number: 0
   noarch: python
+  script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - shelephant_checksum = shelephant.cli.shelephant_checksum:main
-    - shelephant_dump = shelephant.cli.shelephant_dump:main
-    - shelephant_extract = shelephant.cli.shelephant_extract:main
-    - shelephant_get = shelephant.cli.shelephant_get:main
-    - shelephant_merge = shelephant.cli.shelephant_merge:main
-    - shelephant_parse = shelephant.cli.shelephant_parse:main
-    - shelephant_hostinfo = shelephant.cli.shelephant_hostinfo:main
-    - shelephant_cp = shelephant.cli.shelephant_cp:main
-    - shelephant_mv = shelephant.cli.shelephant_mv:main
-    - shelephant_rm = shelephant.cli.shelephant_rm:main
-    - shelephant_send = shelephant.cli.shelephant_send:main
+    - shelephant_checksum = {{ name }}.cli.shelephant_checksum:main
+    - shelephant_diff = {{ name }}:_shelephant_diff_catch
+    - shelephant_dump = {{ name }}.cli.shelephant_dump:main
+    - shelephant_extract = {{ name }}.cli.shelephant_extract:main
+    - shelephant_get = {{ name }}.cli.shelephant_get:main
+    - shelephant_merge = {{ name }}.cli.shelephant_merge:main
+    - shelephant_parse = {{ name }}.cli.shelephant_parse:main
+    - shelephant_hostinfo = {{ name }}.cli.shelephant_hostinfo:main
+    - shelephant_cp = {{ name }}.cli.shelephant_cp:main
+    - shelephant_mv = {{ name }}.cli.shelephant_mv:main
+    - shelephant_rm = {{ name }}.cli.shelephant_rm:main
+    - shelephant_send = {{ name }}.cli.shelephant_send:main
 
 requirements:
   host:
-    - python >=3
     - pip
+    - python >=3
     - setuptools_scm
   run:
-    - python >=3
     - click
-    - pyyaml
     - mergedeep
-    - tqdm
     - numpy
+    - prettytable
+    - python >=3
+    - pyyaml
+    - termcolor
+    - tqdm
 
 test:
   imports:
-    - shelephant
+    - {{ name }}
   commands:
     - shelephant_checksum --version
     - shelephant_dump --version
@@ -54,16 +59,20 @@ test:
     - shelephant_mv --version
     - shelephant_rm --version
     - shelephant_send --version
+    - pip check
+    - python -c "import {{ name }}; assert {{ name }}.version == '{{ version }}'"
+  requires:
+    - pip
 
 about:
-  home: https://github.com/tdegeus/shelephant
+  home: https://github.com/{{ org }}/{{ name }}
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: Copy files with a smart memory to skip unneeded action
   description: Copy files with a smart memory to skip unneeded action
-  doc_url: https://github.com/tdegeus/shelephant
-  dev_url: https://github.com/tdegeus/shelephant
+  doc_url: https://github.com/{{ org }}/{{ name }}
+  dev_url: https://github.com/{{ org }}/{{ name }}
 
 extra:
   recipe-maintainers:
