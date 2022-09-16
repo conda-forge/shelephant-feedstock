@@ -1,6 +1,6 @@
 {% set name = "shelephant" %}
 {% set org = "tdegeus" %}
-{% set version = "0.18.0" %}
+{% set version = "0.19.0" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 52be4b42893732063db07e0eda107e9d9c6a6be810a6db8bfa2fa35ab5dd36c7
+  sha256: 567cec7dc260874a83e2a748970d29dd469a7dbd79acaefaffe0ed213ab72266
 
 build:
   number: 0
