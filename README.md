@@ -1,11 +1,11 @@
-About shelephant
-================
+About shelephant-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/shelephant-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/tdegeus/shelephant
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/shelephant-feedstock/blob/main/LICENSE.txt)
 
 Summary: Copy files with a smart memory to skip unneeded action
 
