@@ -1,6 +1,6 @@
 {% set name = "shelephant" %}
 {% set org = "tdegeus" %}
-{% set version = "0.20.5" %}
+{% set version = "0.21.1" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: d69a1c0252557b793ea263c62667ca841dcf31ab3f726b38dd9602a2bc7584a9
+  sha256: 117763712873abd251ad9ed77af174c717fb2eaf79766818b500b396dfe303c4
 
 build:
   number: 0
@@ -16,18 +16,14 @@ build:
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
-    - shelephant_checksum = {{ name }}.cli.shelephant_checksum:main
-    - shelephant_diff = {{ name }}:_shelephant_diff_catch
-    - shelephant_dump = {{ name }}.cli.shelephant_dump:main
-    - shelephant_extract = {{ name }}.cli.shelephant_extract:main
-    - shelephant_get = {{ name }}.cli.shelephant_get:main
-    - shelephant_merge = {{ name }}.cli.shelephant_merge:main
-    - shelephant_parse = {{ name }}.cli.shelephant_parse:main
-    - shelephant_hostinfo = {{ name }}.cli.shelephant_hostinfo:main
-    - shelephant_cp = {{ name }}.cli.shelephant_cp:main
-    - shelephant_mv = {{ name }}.cli.shelephant_mv:main
-    - shelephant_rm = {{ name }}.cli.shelephant_rm:main
-    - shelephant_send = {{ name }}.cli.shelephant_send:main
+    - shelephant = shelephant.cli:_shelephant_main
+    - shelephant_cp = shelephant.cli:_shelephant_cp_main
+    - shelephant_diff = shelephant.cli:_shelephant_diff_main
+    - shelephant_dump = shelephant.cli:_shelephant_dump_main
+    - shelephant_hostinfo = shelephant.cli:_shelephant_hostinfo_main
+    - shelephant_mv = shelephant.cli:_shelephant_mv_main
+    - shelephant_parse = shelephant.cli:_shelephant_parse_main
+    - shelephant_rm = shelephant.cli:_shelephant_rm_main
 
 requirements:
   host:
@@ -36,29 +32,24 @@ requirements:
     - setuptools_scm
   run:
     - click
-    - mergedeep
     - numpy
     - prettytable
     - python >=3
     - pyyaml
-    - termcolor
     - tqdm
 
 test:
   imports:
     - {{ name }}
   commands:
-    - shelephant_checksum --version
-    - shelephant_dump --version
-    - shelephant_extract --version
-    - shelephant_get --version
-    - shelephant_merge --version
-    - shelephant_parse --version
-    - shelephant_hostinfo --version
+    - shelephant --version
     - shelephant_cp --version
+    - shelephant_diff --version
+    - shelephant_dump --version
+    - shelephant_hostinfo --version
     - shelephant_mv --version
+    - shelephant_parse --version
     - shelephant_rm --version
-    - shelephant_send --version
     - pip check
     - python -c "import {{ name }}; assert {{ name }}.version == '{{ version }}'"
   requires:
@@ -69,9 +60,9 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
-  summary: Copy files with a smart memory to skip unneeded action
-  description: Copy files with a smart memory to skip unneeded action
-  doc_url: https://github.com/{{ org }}/{{ name }}
+  summary: Dataset management
+  description: Dataset management
+  doc_url: https://{{ name }}.readthedocs.io
   dev_url: https://github.com/{{ org }}/{{ name }}
 
 extra:

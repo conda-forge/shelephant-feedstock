@@ -7,13 +7,13 @@ Home: https://github.com/tdegeus/shelephant
 
 Package license: MIT
 
-Summary: Copy files with a smart memory to skip unneeded action
+Summary: Dataset management
 
 Development: https://github.com/tdegeus/shelephant
 
-Documentation: https://github.com/tdegeus/shelephant
+Documentation: https://shelephant.readthedocs.io
 
-Copy files with a smart memory to skip unneeded action
+Dataset management
 
 Current build status
 ====================
