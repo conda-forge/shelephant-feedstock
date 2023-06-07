@@ -1,6 +1,6 @@
 {% set name = "shelephant" %}
 {% set org = "tdegeus" %}
-{% set version = "0.21.6" %}
+{% set version = "0.21.7" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: 37bc33a4424da8c1b1fc994658e3486867d161ec36fa6d58cf18f7aea4b18f20
+  sha256: f1f7770f97ab42fb49a9a119997f87d473b8e2a63d46a4663d30a080f3c3c6cd
 
 build:
   number: 0
@@ -28,13 +28,13 @@ build:
 requirements:
   host:
     - pip
-    - python >=3
+    - python >=3.10
     - setuptools_scm
   run:
     - click
-    - numpy
+    - numpy >=1.15.0
     - prettytable
-    - python >=3
+    - python >=3.10
     - pyyaml
     - tqdm
 
