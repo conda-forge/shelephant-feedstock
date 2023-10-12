@@ -1,14 +1,12 @@
-{% set name = "shelephant" %}
-{% set org = "tdegeus" %}
-{% set version = "0.21.9" %}
+{% set version = "0.21.10" %}
 
 package:
-  name: {{ name|lower }}
+  name: shelephant
   version: {{ version }}
 
 source:
-  url: https://github.com/{{ org }}/{{ name }}/archive/v{{ version }}.tar.gz
-  sha256: ef6cd38497fcbd4767e5b568594f323588d58a66daa4c4231c422d6a7389729a
+  url: https://github.com/tdegeus/shelephant/archive/v{{ version }}.tar.gz
+  sha256: 05b06ebc75338d8575e370b29bb1d4411124402b5f93e4771a7a28b509384d08
 
 build:
   number: 0
@@ -41,30 +39,30 @@ requirements:
 
 test:
   imports:
-    - {{ name }}
+    - shelephant
   commands:
-    - shelephant --version
-    - shelephant_cp --version
-    - shelephant_diff --version
-    - shelephant_dump --version
-    - shelephant_hostinfo --version
-    - shelephant_mv --version
-    - shelephant_parse --version
-    - shelephant_rm --version
     - pip check
-    - python -c "import {{ name }}; assert {{ name }}.version == '{{ version }}'"
+    - python -c "import shelephant; assert shelephant.version == '{{ version }}'"
+    - shelephant --version | grep {{ version }}
+    - shelephant_cp --version | grep {{ version }}
+    - shelephant_diff --version | grep {{ version }}
+    - shelephant_dump --version | grep {{ version }}
+    - shelephant_hostinfo --version | grep {{ version }}
+    - shelephant_mv --version | grep {{ version }}
+    - shelephant_parse --version | grep {{ version }}
+    - shelephant_rm --version | grep {{ version }}
   requires:
     - pip
 
 about:
-  home: https://github.com/{{ org }}/{{ name }}
+  home: https://github.com/tdegeus/shelephant
   license: MIT
   license_family: MIT
   license_file: LICENSE
   summary: Dataset management
   description: Dataset management
-  doc_url: https://{{ name }}.readthedocs.io
-  dev_url: https://github.com/{{ org }}/{{ name }}
+  doc_url: https://shelephant.readthedocs.io
+  dev_url: https://github.com/tdegeus/shelephant
 
 extra:
   recipe-maintainers:
