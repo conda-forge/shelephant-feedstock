@@ -1,4 +1,4 @@
-{% set version = "0.21.10" %}
+{% set version = "0.21.11" %}
 
 package:
   name: shelephant
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/tdegeus/shelephant/archive/v{{ version }}.tar.gz
-  sha256: 05b06ebc75338d8575e370b29bb1d4411124402b5f93e4771a7a28b509384d08
+  sha256: a4334b47c1125f2060f22cd337b4f4e985b4648fec39b217e93177b61fa606ae
 
 build:
   number: 0
