@@ -1,3 +1,4 @@
+{% set python_min = '3.10' %}
 {% set version = "0.24.2" %}
 
 package:
@@ -9,7 +10,7 @@ source:
   sha256: f67084ab3064a82aa86c657c4a92580356d4e45a323fdf27d1393ea68206c6ae
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script_env: SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}
   script: {{ PYTHON }} -m pip install . -vv
@@ -26,14 +27,14 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.10
+    - python {{ python_min }}
     - setuptools_scm
   run:
     - click
     - numpy >=1.15.0
     - platformdirs
     - prettytable
-    - python >=3.10
+    - python >={{ python_min }}
     - pyyaml
     - tqdm
 
@@ -53,6 +54,7 @@ test:
     - shelephant_rm --version | grep {{ version }}
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/tdegeus/shelephant
